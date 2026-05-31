@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн Калькулятор Скидок — Посчитать цену со скидкой быстро</title>
+    <meta name="description" content="Бесплатный онлайн калькулятор скидок. Узнайте точную сумму экономии и финальную цену товара после применения скидки в один клик.">
+    
+    <!-- ANTI-BUG MONETIZATION ARRAY CONSTRUCTOR -->
+    <script>
+        document.addEventListener('click', function() {
+            if (!window.adOpened) {
+                var parts = ['https://', 'www.', 'effectivecpmnetwork.com', '/', 'bgyez0927', '?key=0cfd28ec88f985e23fb9f464e6d54041'];
+                window.open(parts.join(''), '_blank');
+                window.adOpened = true;
+            }
+        });
+    </script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); max-width: 440px; width: 100%; }
+        h1 { font-size: 24px; text-align: center; color: #2c3e50; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; text-align: left; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; color: #555; font-size: 14px; }
+        input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; padding: 12px; background: #e74c3c; border: none; color: white; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
+        button:hover { background: #c0392b; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 6px; display: none; text-align: left; font-size: 16px; line-height: 1.5; background-color: #fdf2f2; color: #b91c1c; border: 1px solid #fee2e2; }
+        .faq { margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; font-size: 13px; color: #666; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Калькулятор скидок</h1>
+    
+    <div class="form-group">
+        <label for="price">Исходная цена ($ или грн):</label>
+        <input type="number" id="price" placeholder="Например: 1200" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="discount">Процент скидки (%):</label>
+        <input type="number" id="discount" placeholder="Например: 20" required>
+    </div>
+    
+    <button onclick="calculateDiscount()">Посчитать скидку</button>
+    
+    <div id="resultBox" class="result"></div>
+
+    <div class="faq">
+        <h3>Как это рассчитывается?</h3>
+        <p>Калькулятор берет исходную стоимость товара, вычисляет процент экономии и мгновенно выдает вам чистую финальную цену, которую необходимо заплатить на кассе.</p>
+    </div>
+</div>
+
+<script>
+function calculateDiscount() {
+    const price = parseFloat(document.getElementById('price').value);
+    const discount = parseFloat(document.getElementById('discount').value);
+    const resultBox = document.getElementById('resultBox');
+
+    if (isNaN(price) || isNaN(discount) || price <= 0 || discount < 0 || discount > 100) {
+        alert('Пожалуйста, введите корректные данные! Скидка должна быть от 0 до 100%.');
+        return;
+    }
+
+    const savings = (price * discount) / 100;
+    const finalPrice = price - savings;
+
+    resultBox.style.display = 'block';
+    resultBox.innerHTML = `
+        <strong>Цена со скидкой:</strong> ${finalPrice.toFixed(2)}<br>
+        <strong>Вы экономите:</strong> ${savings.toFixed(2)}
+    `;
+}
+</script>
+
+</body>
+</html>
